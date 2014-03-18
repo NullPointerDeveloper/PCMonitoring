@@ -1,0 +1,6 @@
+First meet.
+
+Goals until next meeting: 
+1.Configure Eclipse for use with GitHub
+2.Familiarize with JavaScript features and syntax.
+3.Create initial structure in GitHub for project.
