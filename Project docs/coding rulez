@@ -1,0 +1,9 @@
+
+1.all functions  and variables start with lower case . (camel case )
+2.global variables are all upper case .
+3.if constructor must be used whis new operator , it stars whis upper case . 
+4.all functions parameters must be past as object properties .
+5.all commits must have comments .
+6.all complex metods must have explonation above 
+7.then fuction are changed , comments must be updated too .
+8.use "single responsibility " when desinging fuctions .
