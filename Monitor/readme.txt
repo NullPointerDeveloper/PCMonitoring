@@ -5,4 +5,5 @@ that data in JSON data format in a file accessible to server application.
 
 test
 
+test camparing 
 vytautas
