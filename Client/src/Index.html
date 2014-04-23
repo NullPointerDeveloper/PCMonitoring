@@ -1,0 +1,88 @@
+ <!DOCTYPE html>
+<html>
+<head>
+
+
+</head>
+<body>
+
+<h1 id="text">My First Heading</h1>
+
+<p id="state">My first paragraph.</p>
+
+</body>
+
+<script type="text/javascript">
+/**
+ * New node file
+ */
+ var xmlHttp = null;
+
+ GetCustomerInfo();
+ 
+ function GetCustomerInfo()
+ {
+//      var CustomerNumber = document.getElementById( "TextBoxCustomerNumber" ).value;
+     var Url = "http://localhost:1337";
+
+     xmlHttp = new XMLHttpRequest(); 
+     xmlHttp.onreadystatechange = ProcessRequest;
+     xmlHttp.open("GET",Url,true);
+     xmlHttp.send( null );
+ }
+
+ function ProcessRequest() 
+ {
+     if ( xmlHttp.readyState == 4 && xmlHttp.status == 200 ) 
+     {
+         if ( xmlHttp.responseText == "Not found" ) 
+         {
+             document.getElementById( "text"    ).value = "Not found";
+             document.getElementById( "state" ).value = "";
+         }
+         else
+         {
+//              var info = eval ( "(" + xmlHttp.responseText + ")" );
+
+             // No parsing necessary with JSON!        
+             document.getElementById( "text"    ).value = xmlHttp.responseText;
+             document.getElementById( "state" ).value = xmlHttp.statusText;
+         }                    
+     }
+ }
+ 
+ 
+ 
+//  if (window.XMLHttpRequest)
+//   {// code for IE7+, Firefox, Chrome, Opera, Safari
+//   xmlhttp=new XMLHttpRequest();
+//   }
+// else
+//   {// code for IE6, IE5
+//   xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+//   }
+  
+
+//   xmlhttp.open("GET","http://127.0.0.1:1337",true);
+// xmlhttp.send();
+// var text = document.getElementById("text");
+
+// if (text){
+// 	text.innerHTML=httpGet("http://127.0.0.1:1337");
+// // 	window.alert(xmlhttp.response);
+// }
+// var state = document.getElementById("state");
+// if (text){
+// 	state.innerHTML=xmlhttp.statusText;
+// }
+function httpGet(theUrl)
+{
+    var xmlHttp = null;
+
+    xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false );
+    xmlHttp.send(null);
+    return xmlHttp.responseText;
+}
+</script>
+</html> 
