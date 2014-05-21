@@ -4,7 +4,7 @@ function route(handle, pathname, res) {
 	  return handle[pathname](res);
 	  } else {
 	  console.log("router.js No request handler found for " + pathname);
-	  return "404. Something you are loking for is not here";
+	  return handle["clientFile"](pathname);
 	  }
 }
 

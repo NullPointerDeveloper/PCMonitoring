@@ -13,6 +13,16 @@ function start(res) {
 
 }
 
+function getClientFile(pathname) {
+	console.log("requestHandler.js Request handler 'start' was called.");
+	var result = new Object();
+    result.body = fs.readFileSync('../../Client/src' + pathname,'utf8');
+    result.encoding = 'utf8';
+    result.contentType = 'text/plain';
+	return result;
+	
+}
+
 function upload(res) {
 	console.log("requestHandler.js Request handler 'upload' was called.");
 	return "Hello Upload";
@@ -41,4 +51,5 @@ exports.start = start;
 exports.upload = upload;
 exports.getData = getData;
 exports.getTabIcon = getTabIcon;
+exports.getClientFile = getClientFile;
 
