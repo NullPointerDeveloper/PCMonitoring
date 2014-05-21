@@ -7,9 +7,18 @@ function start(route, handle){
 		var pathname = url.parse(req.url).pathname;
 		console.log("server.js Request for \'" + pathname + "\' received.");
 
-		res.writeHead(200, {'Content-Type': 'text/plain'});
-		var response = route(handle, pathname);
-		res.write(response);
+		var response = route(handle, pathname, res);
+		if (response &&
+				'body' in response &&
+				'encoding' in response &&
+				'contentType' in response){
+			
+			res.writeHead(200, {'Content-Type': response.contentType});
+			res.write(response.body, response.encoding);
+		} else {
+			res.writeHead(500);
+		}
+		
 		res.end();
 	}
 	
