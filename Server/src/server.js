@@ -16,7 +16,7 @@ function start(route, handle){
 			res.writeHead(200, {'Content-Type': response.contentType});
 			res.write(response.body, response.encoding);
 		} else {
-			res.writeHead(500);
+			res.writeHead(404);
 		}
 		
 		res.end();
