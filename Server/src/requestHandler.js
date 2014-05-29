@@ -54,6 +54,7 @@ function getData(res) {
 	var currentData = new Object();
 	currentData.totalRam = os.totalmem();
 	currentData.freeRam = os.freemem();
+	currentData.cpu = os.cpus();
 	result.body = JSON.stringify(currentData);
 	result.contentType = 'text/json';
 	result.encoding = 'utf8';
